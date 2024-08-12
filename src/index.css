@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        font-size: 62.5%;
+    }
+    body {
+        font-size: 16px;
+    }
+}
+
+@layer components {
+    .container {
+        width: 1170px;
+        max-width: calc(100% - 48px);
+        margin: 0 auto;
+    }
+}
