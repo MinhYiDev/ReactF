@@ -19,7 +19,11 @@ function Net() {
     const handllerCopy = async () => {
         if ("clipboard" in navigator) {
             navigator.clipboard.writeText(
-                contentCoppy.current?.textContent as string
+                result
+                    .map((item) => {
+                        return `${item.content} \n`;
+                    })
+                    .join(" ")
             );
             setCopy(true);
         }
