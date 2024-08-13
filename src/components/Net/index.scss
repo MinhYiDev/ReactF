@@ -1,0 +1,20 @@
+.container__net {
+    width: 1170px;
+    max-width: calc(100% - 48px);
+    background-color: #f7f8f9;
+    line-height: 1.4;
+    margin: 1rem;
+
+    .box__paragraph {
+        margin-top: 2rem;
+        font-size: 2rem;
+        width: 100%;
+        background: #ffffff;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+
+    p {
+        margin-bottom: 2rem;
+        word-break: break-all;
+    }
+}

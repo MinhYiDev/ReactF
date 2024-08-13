@@ -1,13 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
+import Net from "./components/Net";
 
 function App() {
     return (
         <Routes>
-            <Route path="/" element={<Navbar />} />
-            <Route path="/net" element={"Net"} />
+            <Route path="/" element={<Net />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );
