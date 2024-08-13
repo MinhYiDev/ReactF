@@ -3,14 +3,17 @@
     max-width: calc(100% - 48px);
     background-color: #f7f8f9;
     line-height: 1.4;
-    margin: 1rem;
 
-    .box__paragraph {
+    .wrap__box_paragraph {
+        max-width: calc(100% - 48px);
         margin-top: 2rem;
         font-size: 2rem;
-        width: 100%;
-        background: #ffffff;
+        background: #fff;
+        border-radius: 1.2rem;
         font-family: Helvetica, Arial, sans-serif;
+        width: 50rem;
+        height: 50rem;
+        overflow: scroll;
     }
 
     p {
