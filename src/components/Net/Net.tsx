@@ -21,9 +21,9 @@ function Net() {
             navigator.clipboard.writeText(
                 result
                     .map((item) => {
-                        return `${item.content} \n`;
+                        return `${item.content}\n\n`;
                     })
-                    .join(" ")
+                    .join("")
             );
             setCopy(true);
         }
