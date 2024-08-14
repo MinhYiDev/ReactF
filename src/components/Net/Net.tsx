@@ -1,5 +1,6 @@
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import "./index.scss";
+import moment from "moment-timezone";
 import axios from "axios";
 
 interface IDataNet {
@@ -12,6 +13,7 @@ interface IDataNet {
 
 function Net() {
     const [result, setResult] = useState<IDataNet[]>([]);
+    const [time, setTime] = useState<string>();
     const [copy, setCopy] = useState<boolean>(false);
     const contentCoppy: MutableRefObject<HTMLDivElement | null> =
         useRef<HTMLDivElement>(null);
@@ -41,11 +43,23 @@ function Net() {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        if (result[0]) {
+            const updatedAt = result[0].updatedAt;
+            const formattedTime = moment
+                .tz(updatedAt, "Asia/Ho_Chi_Minh")
+                .format("DD/MM/YYYY HH:mm:ss");
+            setTime(formattedTime);
+        }
+    }, [result]);
+
     return (
         <div className="container container__net">
             <div className="title__net_lb">
                 <div className="wrap__title">
-                    <div className="text-5xl pt-4">Thời Gian Cập Nhật</div>
+                    <div className="text-5xl pt-4">
+                        Thời Gian Cập Nhật: {time}
+                    </div>
                     <div className="text-4xl">By P_SANG 😁</div>
                 </div>
             </div>
