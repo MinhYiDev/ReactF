@@ -2,6 +2,7 @@ import { MutableRefObject, useEffect, useRef, useState } from "react";
 import "./index.scss";
 import moment from "moment-timezone";
 import axios from "axios";
+import Skeleton from "../Skeleton";
 
 interface IDataNet {
     _id: string;
@@ -58,7 +59,7 @@ function Net() {
         }
     }, [result]);
 
-    return (
+    return result.length > 0 ? (
         <div className="container container__net">
             <div className="title__net_lb">
                 <div className="wrap__title">
@@ -103,6 +104,8 @@ function Net() {
                 </div>
             </div>
         </div>
+    ) : (
+        <Skeleton />
     );
 }
 
