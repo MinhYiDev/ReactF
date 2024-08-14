@@ -42,21 +42,21 @@ function Net() {
     }, []);
 
     return (
-        <div className="container mt-4 container__net">
+        <div className="container container__net">
             <div className="title__net_lb">
                 <div className="wrap__title">
-                    <div className="text-5xl">Thời Gian Cập Nhật</div>
+                    <div className="text-5xl pt-4">Thời Gian Cập Nhật</div>
                     <div className="text-4xl">By P_SANG 😁</div>
                 </div>
             </div>
 
-            <div className="box__paragraph">
-                <div className="mt-4 flex justify-end mr-[6rem] p-4">
+            <div className="box__paragraph flex justify-center items-center flex-col w-[100%]">
+                <div className="mt-4 flex justify-end items-center mr-[6rem]">
                     <div
                         onClick={() => handllerCopy()}
-                        className="flex cursor-pointer"
+                        className="box_left flex flex-1 justify-end items-center cursor-pointer relative"
                     >
-                        <button className="bg-slate-500 rounded-lg p-2 text-[#fff]">
+                        <button className="bg-slate-500 flex justify-end items-center rounded-lg p-2 text-[#fff]">
                             {copy ? "✅ Copied" : "Copy"}
                         </button>
                         <div className="ml-1 w-8 h-10">
@@ -75,7 +75,7 @@ function Net() {
                         </div>
                     </div>
                 </div>
-                <div ref={contentCoppy} className="wrap__box_paragraph mt-4">
+                <div ref={contentCoppy} className="wrap__box_paragraph p-10 ">
                     {result.map((item, id) => (
                         <p key={id}>{item.content}</p>
                     ))}

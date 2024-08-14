@@ -1,7 +1,6 @@
 .container__net {
     width: 1170px;
     max-width: calc(100% - 48px);
-    background-color: #f7f8f9;
     line-height: 1.4;
 
     .wrap__box_paragraph {
@@ -13,11 +12,20 @@
         font-family: Helvetica, Arial, sans-serif;
         width: 50rem;
         height: 50rem;
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        border-radius: 0.5rem;
+        border: 2px solid #eeeeee;
     }
 
     p {
         margin-bottom: 2rem;
         word-break: break-all;
+    }
+}
+
+@media (max-width: 420px) {
+    .box_left {
+        left: calc(100% - (-7.2rem));
     }
 }
