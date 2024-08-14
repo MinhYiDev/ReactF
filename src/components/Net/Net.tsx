@@ -58,9 +58,9 @@ function Net() {
             <div className="title__net_lb">
                 <div className="wrap__title">
                     <div className="text-5xl pt-4">
-                        Thời Gian Cập Nhật: {time}
+                        🤗Thời Gian Cập Nhật: {time}
                     </div>
-                    <div className="text-4xl">By P_SANG 😁</div>
+                    <div className="text-4xl">By P_SANG😊</div>
                 </div>
             </div>
 
