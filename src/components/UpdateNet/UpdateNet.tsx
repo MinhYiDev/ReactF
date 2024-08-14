@@ -2,6 +2,7 @@ import clsx from "clsx";
 import styles from "./updateNet.module.css";
 import { FormEvent, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function UpdateNet() {
     const [id, setId] = useState<string>("");
@@ -18,7 +19,14 @@ function UpdateNet() {
 
     return (
         <div className={clsx("container", styles.container__update)}>
-            <h1 className="text-5xl text-center mt-4 font-bold">UPDATE NET</h1>
+            <div className="flex items-center justify-between">
+                <h1 className="text-5xl text-center mt-4 font-bold">
+                    UPDATE NET
+                </h1>
+                <Link className="hover:underline hover:font-bold" to={"/"}>
+                    return HOME
+                </Link>
+            </div>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <section className={clsx(styles.wrapper__net)}>
                     <div>
