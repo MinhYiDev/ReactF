@@ -74,18 +74,18 @@ function Login(): JSX.Element {
                                 onChange={(e) => setPassword(e.target.value)}
                                 className="border-2"
                                 id="password"
-                                type={showPassword ? "password" : "t"}
+                                type={showPassword ? "text" : "password"}
                                 placeholder="*******"
                             />
                             {!showPassword ? (
-                                <IconEyeOpen
+                                <IconEyeClose
                                     onClick={() => setShowPassword(true)}
-                                    className="absolute translate-y-[50%] translate-x-[-24.3px]"
+                                    className="absolute translate-y-[20%] translate-x-[-24.3px]"
                                 />
                             ) : (
-                                <IconEyeClose
+                                <IconEyeOpen
                                     onClick={() => setShowPassword(false)}
-                                    className="absolute translate-y-[20%] translate-x-[-24.3px]"
+                                    className="absolute translate-y-[50%] translate-x-[-24.3px]"
                                 />
                             )}
                         </div>
