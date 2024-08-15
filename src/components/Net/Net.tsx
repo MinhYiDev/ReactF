@@ -38,12 +38,7 @@ function Net() {
 
     useEffect(() => {
         async function fetchData() {
-            const res = await axios.get("https://api.psang.click/v1/api/net", {
-                headers: {
-                    "x-api-key":
-                        "509687bad221218b816ce815402d6d8c8d4f6798c2c5be6c70c2da44b8ff024ff2b344084a97c514cc57d4df6e85681b63753fd396e90f4062b2c930df4344b6",
-                },
-            });
+            const res = await axios.get("https://api.psang.click/v1/api/net");
             setResult(res.data?.data);
         }
         fetchData();
