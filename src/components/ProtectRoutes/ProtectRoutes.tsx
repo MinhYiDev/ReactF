@@ -12,7 +12,7 @@ function ProtectRoutes({ children }: ProtectRoutesProps): JSX.Element {
     const isLogin: boolean = useSelector(
         (state: RootState) => state.auth.isSuccess
     );
-    return isLogin ? <>{children}</> : <Navigate to="/login" />;
+    return isLogin ? <>{children}</> : <Navigate to="/login" replace />;
 }
 
 export default ProtectRoutes;
