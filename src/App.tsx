@@ -5,12 +5,14 @@ import UpdateNet from "./components/UpdateNet";
 import ProtectRoutes from "./components/ProtectRoutes";
 import Login from "./components/Login/Login";
 import Test from "./components/Test/Test";
+import OneDrive from "./components/OneDrive";
 
 function App() {
     return (
         <Routes>
             <Route path="/" element={<Net />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/onedrive" element={<OneDrive />} />
             <Route
                 path="/update/net"
                 element={
