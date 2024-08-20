@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { useSelector } from "react-redux";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { RootState } from "../../redux/store";
 
 interface ProtectRoutesProps {
@@ -9,8 +9,6 @@ interface ProtectRoutesProps {
 }
 
 function ProtectRoutes({ children }: ProtectRoutesProps): JSX.Element {
-    const location = useLocation();
-    console.log(location);
     const isLogin: boolean = useSelector(
         (state: RootState) => state.auth.isSuccess
     );

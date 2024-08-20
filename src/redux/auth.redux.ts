@@ -1,18 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface IPayload {
-    name: string;
-    email: string;
-    tokens: string;
+    name: null;
+    email: null;
     isLoading: boolean;
 }
 
 const auth = createSlice({
     name: "authSlice",
     initialState: {
-        name: "",
-        email: "",
-        tokens: "",
+        name: null,
+        email: null,
+        tokens: null,
         isLoading: false,
         isError: false,
         isSuccess: false,
@@ -24,7 +23,6 @@ const auth = createSlice({
         getInfoSucess: (state, action: PayloadAction<IPayload>) => {
             state.email = action.payload.email;
             state.name = action.payload.name;
-            state.tokens = action.payload.tokens;
             state.isLoading = false;
             state.isSuccess = true;
         },
