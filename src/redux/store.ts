@@ -1,4 +1,8 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import {
+    combineReducers,
+    configureStore,
+    EnhancedStore,
+} from "@reduxjs/toolkit";
 import {
     persistStore,
     persistReducer,
@@ -15,9 +19,9 @@ import storage from "redux-persist/lib/storage";
 import authRedux from "./auth.redux";
 
 const persistConfig = {
-    key: "root",
-    version: 1,
+    key: "auth",
     storage,
+    blacklist: ["_persist"],
 };
 
 const rootReducer = combineReducers({
@@ -26,7 +30,7 @@ const rootReducer = combineReducers({
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const store = configureStore({
+const store: EnhancedStore = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
@@ -43,5 +47,6 @@ export const store = configureStore({
         }),
 });
 
+export { store };
 export const persistor = persistStore(store);
 export type RootState = ReturnType<typeof store.getState>;

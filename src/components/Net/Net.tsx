@@ -4,7 +4,6 @@ import moment from "moment-timezone";
 import axios from "axios";
 import Skeleton from "../Skeleton";
 import CONST_GLOBAL from "../types";
-import { NavLink } from "react-router-dom";
 
 interface IDataNet {
     _id: string;
@@ -58,8 +57,6 @@ function Net() {
 
     return result.length > 0 ? (
         <div className="container container__net">
-            <NavLink to={"/update/net"}>UPDATE</NavLink>
-
             <div className="title__net_lb">
                 <div className="wrap__title">
                     <div className="text-5xl pt-4">
