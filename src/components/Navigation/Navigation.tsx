@@ -11,6 +11,7 @@ function Navigation(): JSX.Element {
         { content: "Trang Chủ", path: "/" },
         { content: "Thêm Net", path: "/post/net" },
         { content: "Cập Nhật", path: "/update/net" },
+        { content: "Login", path: "/login" },
     ];
     return (
         <>
@@ -23,7 +24,9 @@ function Navigation(): JSX.Element {
                         key={index}
                         to={item.path}
                     >
-                        <span className="mt-5 mr-4">{item.content}</span>
+                        <span className="mt-5 mr-4 break_nav">
+                            {item.content}
+                        </span>
                     </NavLink>
                 ))}
             </div>
