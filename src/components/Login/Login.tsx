@@ -44,35 +44,40 @@ function Login(): JSX.Element {
     };
     return (
         <div className="login__wrapper container mt-4">
-            <section className="border-2 border-solid  bg-[#ffffff] w-[80%] h-[500px]">
+            <section className="border-2 mx-auto p-4  border-solid  bg-[#ffffff] w-[80%] h-[500px]">
                 <h1 className="text-5xl text-center mt-4 login__abx">
                     Đăng Nhập
                 </h1>
-                <form onSubmit={(e) => handleSubmit(e)}>
-                    <div className="">
-                        <label className="text-5xl uppercase" htmlFor="email">
+                <form autoComplete="false" onSubmit={(e) => handleSubmit(e)}>
+                    <div className="mt-12">
+                        <label
+                            className="text-3xl md:text-5xl font-bold uppercase"
+                            htmlFor="email"
+                        >
                             Email
                         </label>
                         <input
+                            required
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full h-20 border-2"
+                            className="w-full px-4  h-20 border-2"
                             id="email"
-                            type="text"
+                            type="email"
                             placeholder="Vui lòng nhập email ..."
                         />
                     </div>
 
-                    <div className="">
+                    <div className="mt-10">
                         <label
-                            className="text-5xl uppercase"
+                            className="text-3xl md:text-5xl font-medium uppercase ml-auto"
                             htmlFor="password"
                         >
                             Password
                         </label>
                         <div className="relative max-w-lg w-[100%]">
                             <input
+                                required
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="border-2"
+                                className="border-2 px-4"
                                 id="password"
                                 type={showPassword ? "text" : "password"}
                                 placeholder="*******"
