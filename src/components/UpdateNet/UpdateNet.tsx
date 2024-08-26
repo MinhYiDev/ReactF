@@ -15,23 +15,23 @@ function UpdateNet() {
         setContent("");
     };
 
-    useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            const formElement: HTMLFormElement | null =
-                document.querySelector("form");
+    const handleKeyDown = (e: KeyboardEvent) => {
+        const formElement: HTMLFormElement | null =
+            document.querySelector("form");
 
-            if (e.ctrlKey && e.key === "Enter") {
-                if (formElement) {
-                    const submitEvent: Event = new Event("submit", {
-                        bubbles: true,
-                        cancelable: true,
-                    });
-                    formElement.dispatchEvent(submitEvent);
-                }
-                // handleSubmit(e as unknown as FormEvent<HTMLFormElement>);
+        if (e.ctrlKey && e.key === "Enter") {
+            if (formElement) {
+                const submitEvent: Event = new Event("submit", {
+                    bubbles: true,
+                    cancelable: true,
+                });
+                formElement.dispatchEvent(submitEvent);
             }
-        };
+            // handleSubmit(e as unknown as FormEvent<HTMLFormElement>);
+        }
+    };
 
+    useEffect(() => {
         document.addEventListener("keydown", handleKeyDown);
 
         return () => {
