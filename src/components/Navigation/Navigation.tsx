@@ -40,7 +40,7 @@ function Navigation(): JSX.Element {
                     </NavLink>
                 ))}
 
-                <h1 className="flex items-center justify-center mt-10">
+                <h1 className="flex sm:hidden items-center justify-center mt-10">
                     Xin Chào <span className="font-bold">{name}</span>,
                 </h1>
             </div>
