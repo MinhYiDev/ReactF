@@ -4,6 +4,8 @@ import moment from "moment-timezone";
 import axios from "axios";
 import Skeleton from "../Skeleton";
 import CONST_GLOBAL from "../types";
+import Online from "../Online/Online";
+import Offline from "../../Offline/Offline";
 
 interface IDataNet {
     _id: string;
@@ -17,6 +19,7 @@ function Net() {
     const [result, setResult] = useState<IDataNet[]>([]);
     const [time, setTime] = useState<string>();
     const [copy, setCopy] = useState<boolean>(false);
+    const [online, setOnline] = useState<boolean>(true);
     const contentCoppy: MutableRefObject<HTMLDivElement | null> =
         useRef<HTMLDivElement>(null);
 
@@ -36,6 +39,19 @@ function Net() {
             setCopy(false);
         }, 3000);
     };
+
+    const changeStatus = () => {
+        if (navigator.onLine) {
+            setOnline(true);
+        } else {
+            setOnline(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("online", changeStatus);
+        window.addEventListener("offline", changeStatus);
+    }, []);
 
     useEffect(() => {
         async function fetchData() {
@@ -58,11 +74,10 @@ function Net() {
     return result.length > 0 ? (
         <div className="container container__net">
             <div className="title__net_lb">
+                {online ? <Online /> : <Offline />}
                 <div className="wrap__title">
-                    <div className="text-5xl pt-4">
-                        🤗Thời Gian Cập Nhật: {time}
-                    </div>
-                    <div className="text-4xl">By P_SANG😊</div>
+                    <div className="text-5xl pt-4">🤗Cập Nhật: {time}</div>
+                    {/* <div className="text-4xl">By P_SANG😊</div> */}
                 </div>
             </div>
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./index.scss";
 import axios from "axios";
 import CONST_GLOBAL from "../types";
@@ -11,6 +11,7 @@ import {
 } from "../../redux/auth.redux";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import { IconEyeClose, IconEyeOpen } from "../Icon";
+import { useKeySubmit } from "../customHooks";
 
 function Login(): JSX.Element {
     const [email, setEmail] = useState<string>("");
@@ -26,7 +27,7 @@ function Login(): JSX.Element {
             password,
         };
 
-        const res = await axios.post(CONST_GLOBAL.url_shop + "/login", data, {
+        const res = await axios.post(`${CONST_GLOBAL.url_shop}/login`, data, {
             headers: {
                 "x-api-key": CONST_GLOBAL.x_api_key,
                 "x-pre-key": CONST_GLOBAL.x_pre_key,
@@ -42,6 +43,9 @@ function Login(): JSX.Element {
             dispatch(getInfoFailue());
         }
     };
+
+    useKeySubmit();
+
     return (
         <div className="login__wrapper container mt-4">
             <section className="border-2 mx-auto p-4  border-solid  bg-[#ffffff] w-[80%] h-[500px]">

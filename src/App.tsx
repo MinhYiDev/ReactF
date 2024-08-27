@@ -8,6 +8,7 @@ import Test from "./components/Test/Test";
 import OneDrive from "./components/OneDrive";
 import Navigation from "./components/Navigation";
 import PostNet from "./components/PostNet";
+import CommingSoon from "./components/CommingSoon/CommingSoon";
 
 function App() {
     console.log(
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/" element={<Net />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/onedrive" element={<OneDrive />} />
+                <Route path="/comming" element={<CommingSoon />} />
                 <Route
                     path="/update/net"
                     element={

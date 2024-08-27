@@ -9,13 +9,14 @@ interface IContent {
 }
 
 function Navigation(): JSX.Element {
-    const isLogin: boolean = useSelector(
-        (state: RootState) => state.auth.isSuccess
-    );
+    const { isSuccess: isLogin, name }: { isSuccess: boolean; name: string } =
+        useSelector((state: RootState) => state.auth);
+
     const navC: IContent[] = [
         { content: "Trang Chủ", path: "/" },
         { content: "Thêm Net", path: "/post/net" },
         { content: "Cập Nhật", path: "/update/net" },
+        { content: "Comming Soon", path: "/comming" },
     ];
 
     const baseNav: IContent[] = isLogin
@@ -23,8 +24,8 @@ function Navigation(): JSX.Element {
         : [...navC, { content: "Login", path: "/login" }];
 
     return (
-        <>
-            <div className="container mx-auto flex justify-center text-4xl">
+        <div className="container">
+            <div className="flex justify-center text-4xl">
                 {baseNav.map((item, index) => (
                     <NavLink
                         className={({ isActive }) =>
@@ -38,9 +39,13 @@ function Navigation(): JSX.Element {
                         </span>
                     </NavLink>
                 ))}
+
+                <h1 className="flex items-center justify-center mt-10">
+                    Xin Chào <span className="font-bold">{name}</span>,
+                </h1>
             </div>
             <Outlet />
-        </>
+        </div>
     );
 }
 
