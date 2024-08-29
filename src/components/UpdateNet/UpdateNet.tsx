@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useKeySubmit } from "../customHooks";
@@ -17,6 +17,10 @@ function UpdateNet() {
     };
 
     useKeySubmit();
+
+    useEffect(() => {
+        document.title = "Cập Nhật Net";
+    }, []);
 
     return (
         <div className="container">

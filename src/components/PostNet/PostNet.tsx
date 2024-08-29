@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./index.scss";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { Link } from "react-router-dom";
@@ -20,18 +20,25 @@ function PostNet(): JSX.Element {
 
     const handlleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(data);
 
         if (isLogin) {
             const res = await axios.post(
                 "https://api.psang.click/v1/api/net/net",
                 data
             );
+
             console.log(res);
+
+            setId("");
+            setContent("");
         } else {
             setShowAlert("Bạn Vui Lòng Đăng Nhập Để Thêm Mới!!!!");
         }
     };
+
+    useEffect(() => {
+        document.title = "Thêm Net";
+    }, []);
     return (
         <div className="container">
             <h1 className="text-5xl font-bold">Thêm Net</h1>
@@ -40,6 +47,7 @@ function PostNet(): JSX.Element {
                     <div className="">
                         <label htmlFor="id">ID</label>
                         <input
+                            value={id}
                             onChange={(e) => setId(e.target.value)}
                             className="border ml-4 border-red-300"
                             type="number"
@@ -50,6 +58,7 @@ function PostNet(): JSX.Element {
                             Nội Dung
                         </label>
                         <textarea
+                            value={content}
                             onChange={(e) => setContent(e.target.value)}
                             id="content"
                             className="border border-red-400"

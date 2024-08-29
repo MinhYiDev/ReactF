@@ -71,6 +71,10 @@ function Net() {
         }
     }, [result]);
 
+    useEffect(() => {
+        document.title = "Trang Chủ";
+    }, []);
+
     return result.length > 0 ? (
         <div className="container container__net">
             <div className="title__net_lb">
