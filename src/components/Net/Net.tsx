@@ -5,7 +5,8 @@ import axios from "axios";
 import Skeleton from "../Skeleton";
 import CONST_GLOBAL from "../types";
 import Online from "../Online/Online";
-import Offline from "../../Offline/Offline";
+import Offline from "../Offline/Offline";
+import { Tooltip } from "antd";
 
 interface IDataNet {
     _id: string;
@@ -92,7 +93,9 @@ function Net() {
                         className="box_left flex flex-1 justify-end items-center cursor-pointer relative"
                     >
                         <button className="bg-slate-500 flex justify-end items-center rounded-lg p-2 text-[#fff]">
-                            {copy ? `✅Copied` : "Copy"}
+                            <Tooltip title="Coppy">
+                                {copy ? `✅Copied` : "Copy"}
+                            </Tooltip>
                         </button>
                         {copy == false && (
                             <div className="ml-1 w-8 h-10">

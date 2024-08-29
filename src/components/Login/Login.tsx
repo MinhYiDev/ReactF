@@ -8,7 +8,7 @@ import {
     getInfoFailue,
     getInfoStart,
     getInfoSucess,
-} from "../../redux/auth.redux";
+} from "../redux/auth.redux";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import { IconEyeClose, IconEyeOpen } from "../Icon";
 import { useKeySubmit } from "../customHooks";

@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import "./index.scss";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import { RootState } from "../redux/store";
 import { Link } from "react-router-dom";
 
 function PostNet(): JSX.Element {
     const isLogin: boolean = useSelector(
         (state: RootState) => state.auth.isSuccess
     );
+
     const [id, setId] = useState<string>();
     const [content, setContent] = useState<string>();
     const [showAlert, setShowAlert] = useState<string>();

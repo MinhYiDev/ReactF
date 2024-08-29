@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import "./index.scss";
 import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import { RootState } from "../redux/store";
 
 interface IContent {
     content: string;
