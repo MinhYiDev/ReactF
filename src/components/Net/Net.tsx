@@ -71,10 +71,6 @@ function Net() {
         }
     }, [result]);
 
-    useEffect(() => {
-        document.title = "Trang Chủ";
-    }, []);
-
     return result.length > 0 ? (
         <div className="container container__net">
             <div className="title__net_lb">
@@ -91,7 +87,9 @@ function Net() {
                         onClick={() => handllerCopy()}
                         className="box_left flex flex-1 justify-end items-center cursor-pointer relative"
                     >
-                        <button className="bg-slate-500 flex justify-end items-center rounded-lg p-2 text-[#fff]"></button>
+                        <button className="bg-slate-500 flex justify-end items-center rounded-lg p-2 text-[#fff]">
+                            {copy ? `✅Copied` : "Copy"}
+                        </button>
                         {copy == false && (
                             <div className="ml-1 w-8 h-10">
                                 <svg
