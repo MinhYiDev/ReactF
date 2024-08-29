@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./index.scss";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { Link } from "react-router-dom";
