@@ -9,24 +9,16 @@ import OneDrive from "./components/OneDrive";
 import Navigation from "./components/Navigation";
 import PostNet from "./components/PostNet";
 import CommingSoon from "./components/CommingSoon/CommingSoon";
+import { useConsoleLog } from "./components/customHooks";
 
 function App() {
-    console.log(
-        "%cHello!🥳 WELCOME GO TO PSANG",
-        "color:green;font-size:20px;font-weight:bold;"
-    );
-    console.log(
-        "%cWelcome to : %chttps://psang.click",
-        "font-weight:bold",
-        "text-transform:underline"
-    );
+    useConsoleLog();
     return (
         <Routes>
             <Route path="/" element={<Navigation />}>
                 <Route path="/" element={<Net />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/onedrive" element={<OneDrive />} />
-                <Route path="/comming" element={<CommingSoon />} />
                 <Route
                     path="/update/net"
                     element={
@@ -40,6 +32,7 @@ function App() {
                 <Route path="/test" element={<Test />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
+            <Route path="/comming" element={<CommingSoon />} />
         </Routes>
     );
 }

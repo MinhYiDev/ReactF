@@ -9,7 +9,7 @@ interface IContent {
 }
 
 function Navigation(): JSX.Element {
-    const { isSuccess: isLogin, name }: { isSuccess: boolean; name: string } =
+    const { isSuccess: isLogin }: { isSuccess: boolean; name: string } =
         useSelector((state: RootState) => state.auth);
 
     const navC: IContent[] = [
@@ -39,10 +39,6 @@ function Navigation(): JSX.Element {
                         </span>
                     </NavLink>
                 ))}
-
-                <h1 className="flex sm:hidden items-center justify-center mt-10">
-                    Xin Chào <span className="font-bold">{name}</span>,
-                </h1>
             </div>
             <Outlet />
         </div>

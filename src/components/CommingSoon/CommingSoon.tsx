@@ -42,7 +42,7 @@ function CommingSoon(): JSX.Element {
     } = theme.useToken();
 
     return (
-        <Layout className="mt-10">
+        <Layout className="">
             <Header style={{ display: "flex", alignItems: "center" }}>
                 <div className="demo-logo" />
                 <Menu
