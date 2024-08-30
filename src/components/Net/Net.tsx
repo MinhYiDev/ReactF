@@ -54,6 +54,10 @@ function Net() {
     }, []);
 
     useEffect(() => {
+        document.title = "Trang Chủ";
+    }, []);
+
+    useEffect(() => {
         async function fetchData() {
             const res = await axios.get(CONST_GLOBAL.url_net);
             setResult(res.data?.data);
