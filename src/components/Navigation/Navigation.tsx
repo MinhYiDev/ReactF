@@ -25,7 +25,7 @@ function Navigation(): JSX.Element {
 
     return (
         <div className="container">
-            <div className="flex justify-center text-4xl">
+            <div className="flex justify-center text-4xl flex-wrap">
                 {baseNav.map((item, index) => (
                     <NavLink
                         className={({ isActive }) =>
