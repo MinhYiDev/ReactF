@@ -33,6 +33,11 @@ function App() {
                 <Route path="*" element={<NotFound />} />
             </Route>
             <Route path="/comming" element={<CommingSoon />} />
+            <Route path="/comming/download/office" element={<CommingSoon />} />
+            <Route
+                path="/comming/download/phothong"
+                element={<CommingSoon />}
+            />
         </Routes>
     );
 }
