@@ -34,10 +34,7 @@ function App() {
             </Route>
             <Route path="/comming" element={<CommingSoon />} />
             <Route path="/comming/download/office" element={<CommingSoon />} />
-            <Route
-                path="/comming/download/phothong"
-                element={<CommingSoon />}
-            />
+            <Route path="/comming/download/common" element={<CommingSoon />} />
         </Routes>
     );
 }

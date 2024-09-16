@@ -8,6 +8,8 @@ import type { MenuProps } from "antd";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
 import { MenuInfo } from "rc-menu/lib/interface";
 import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
+import Office from "./App/Office";
+import Common from "./App/Common";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -37,26 +39,22 @@ const items3: MenuProps["items"] = [
     },
 ];
 
-function ContentComponent() {
+const ContentComponent: React.FC = () => {
     const location = useLocation();
+    console.log(location.pathname.split("/").pop());
     const path = location.pathname.split("/").pop();
 
     const renderContent = () => {
         switch (path) {
             case "update":
-                return <div>Content for menu item 1</div>;
+                return <div>OK</div>;
             case "post":
                 return <div>Content for menu item 2</div>;
             case "office":
-                return (
-                    <form action="">
-                        <h1>Hello</h1>
-                    </form>
-                );
-            case "download":
-                return <div>Content for download</div>;
-            default:
-                return <div>Select a menu item</div>;
+                return <Office />;
+            case "common":
+                return <Common />;
+            // return <Common />;
         }
     };
 
@@ -65,15 +63,14 @@ function ContentComponent() {
             {renderContent()}
         </Content>
     );
-}
+};
 
-function CommingSoon(): JSX.Element {
+const CommingSoon = (): JSX.Element => {
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
 
     const navigate: NavigateFunction = useNavigate();
-    // const location = useLocation();
 
     const handllerClick = (e: MenuInfo) => {
         const key = e.key;
@@ -88,7 +85,7 @@ function CommingSoon(): JSX.Element {
                 navigate("/comming/download/office");
                 break;
             case "4":
-                navigate("/comming/download/phothong");
+                navigate("/comming/download/common");
                 break;
             default:
                 break;
@@ -145,10 +142,10 @@ function CommingSoon(): JSX.Element {
                 </Layout>
             </Content>
             <Footer style={{ textAlign: "center" }}>
-                ©{new Date().getFullYear()}
+                {/* ©{new Date().getFullYear()} */}
             </Footer>
         </Layout>
     );
-}
+};
 
 export default CommingSoon;
